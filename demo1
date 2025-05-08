@@ -1,0 +1,26 @@
+const (
+	USDToRUB = 81.14
+	USDToEUR = 0.88
+	EURToRUB = USDToRUB / USDToEUR // Рассчитанный курс EUR к RUB
+)
+func calculateResult(currency1, currency2 string, number float64) float64 {
+	if currency1 == currency2 {
+		return number
+	}
+	switch currency1 + "->" + currency2 {
+	case "USD->EUR":
+		return number * USDToEUR
+	case "USD->RUB":
+		return number * USDToRUB
+	case "EUR->USD":
+		return number / USDToEUR
+	case "EUR->RUB":
+		return number * EURToRUB
+	case "RUB->USD":
+		return number / USDToRUB
+	case "RUB->EUR":
+		return number / EURToRUB
+	default:
+		return 0
+	}
+}
