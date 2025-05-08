@@ -9,6 +9,15 @@ func calculateResult(currency1, currency2 string, number float64) float64 {
 	}
 	switch currency1 + "->" + currency2 {
 	case "USD->EUR":
+	fmt.Print("_Конвертер валют_\n\n")
+	for{
+	currency1, number, currency2 := userInput()                         
+	result := calculateResult(currency1, currency2, number)
+	fmt.Printf("Ваш результат: %.04f\n\n", result)
+	answer := question()
+	if !answer{
+		break
+	}
 		return number * USDToEUR
 	case "USD->RUB":
 		return number * USDToRUB
